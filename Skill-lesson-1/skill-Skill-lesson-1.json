@@ -1,0 +1,229 @@
+{
+  "name": "Skill-lesson-1",
+  "intents": [
+    {
+      "intent": "assistant_person",
+      "examples": [
+        {
+          "text": "Mari"
+        },
+        {
+          "text": "Ana"
+        },
+        {
+          "text": "Marina"
+        },
+        {
+          "text": "Mariana"
+        }
+      ]
+    },
+    {
+      "intent": "questions",
+      "examples": [
+        {
+          "text": "What do you like?"
+        },
+        {
+          "text": "How old are you?"
+        },
+        {
+          "text": "What's your name?"
+        },
+        {
+          "text": "Where do you live?"
+        },
+        {
+          "text": "Who do you live with?"
+        }
+      ]
+    },
+    {
+      "intent": "hello_world",
+      "examples": [
+        {
+          "text": "Hallo"
+        },
+        {
+          "text": "Hoy"
+        },
+        {
+          "text": "Hello"
+        },
+        {
+          "text": "Hi"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "entity": "Car",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Nissan",
+          "synonyms": [
+            "Volvo",
+            "Renault",
+            "Smart",
+            "Mini",
+            "BMW",
+            "Mercedes-Benz",
+            "audi",
+            "volkswagen",
+            "mazda",
+            "lexus",
+            "hyundai"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "Color",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "White",
+          "synonyms": [
+            "Blue",
+            "Red",
+            "Green",
+            "Yellow",
+            "Black"
+          ]
+        }
+      ]
+    }
+  ],
+  "language": "en",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2018-09-20"
+    }
+  },
+  "description": "",
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "output": {},
+      "metadata": {},
+      "dialog_node": "node_1_1552607201339",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Hello World",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hi, how are you?"
+              },
+              {
+                "text": "Hello, how are u?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          },
+          {
+            "time": 10000,
+            "typing": true,
+            "response_type": "pause"
+          },
+          {
+            "title": "Test One",
+            "options": [
+              {
+                "label": "Label One",
+                "value": {
+                  "input": {
+                    "text": "Label Value 1"
+                  }
+                }
+              },
+              {
+                "label": "Label Two",
+                "value": {
+                  "input": {
+                    "text": "Label Value 2"
+                  }
+                }
+              }
+            ],
+            "description": "Teste One Description",
+            "response_type": "option"
+          }
+        ]
+      },
+      "metadata": {},
+      "conditions": "#hello_world && @Car",
+      "dialog_node": "node_1_1552604656736",
+      "previous_sibling": "node_1_1552607201339"
+    },
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {},
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_1_1552604656736"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello. How can I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {},
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "workspace_id": "0d7ccc5b-d889-45a6-a462-57b7df9b1ba6",
+  "counterexamples": [
+    {
+      "text": "Ana"
+    }
+  ],
+  "system_settings": {
+    "tooling": {
+      "store_generic_responses": true
+    }
+  },
+  "learning_opt_out": false,
+  "status": "Available"
+}
