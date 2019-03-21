@@ -2,7 +2,7 @@ const NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-l
 
 const nlu = new NaturalLanguageUnderstandingV1({
   'version': '2018-04-05',
-  'iam_apikey': "A57y-Qwd281cW3ZaRWSM5afrkz7GexcNOmTa0yqDu9SD",
+  'iam_apikey': "your_api_key",
   "iam_apikey_description": "Auto generated apikey during resource-key operation for Instance - crn:v1:bluemix:public:natural-language-understanding:us-east:a/60c90d29ecae487b93d92313c7ab535f:a8ef89f7-e9f0-49f6-99ad-510c5265bb60::",
   "iam_apikey_name": "auto-generated-apikey-7290c8fe-690c-4cfd-9443-89d59757e59d",
   "iam_role_crn": "crn:v1:bluemix:public:iam::::serviceRole:Manager",
