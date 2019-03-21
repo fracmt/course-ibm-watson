@@ -1,2 +1,5 @@
 Car,Nissan,Volvo,Renault,Smart,Mini,BMW,Mercedes-Benz,audi,volkswagen,mazda,lexus,hyundai
 Color,White,Black,Yellow,Green,Red,Blue
+PhoneNumber,number_phone,/(^|\()?\s*(\d{2})\s*(\s|\))*(9?\d{4})(\s|-)?(\d{4})($|\n)/
+Email,email,"/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/"
+CPF,cpf,/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/
