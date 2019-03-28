@@ -19,9 +19,12 @@ const TOKEN = 'your_token_telegram'
 const bot = new TelegramBot(TOKEN, { polling: true })
 
 bot.on('message', (msg) => {
-  //console.log(JSON.stringify(msg));
-  
+    let username = msg.from.username;
+    context.namePerson = username;
 
+    console.log(JSON.stringify(msg, null, "\t"));
+  
+    
   const params = {
     input: { text: msg.text },
     workspace_id: '0d7ccc5b-d889-45a6-a462-57b7df9b1ba6',
@@ -29,7 +32,7 @@ bot.on('message', (msg) => {
     context,
 };
   watsonAssistant.message(params, (err, response) => {
-    console.log(JSON.stringify(response, null, "\t"));
+    //console.log(JSON.stringify(response, null, "\t"));
     if(err)
           bot.sendMessage(msg.chat.id, 'Eita... deu algum  erro na API :S');
     bot.sendMessage(msg.chat.id, response.output.text.join('\n'));
