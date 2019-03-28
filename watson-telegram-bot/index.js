@@ -1,5 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 const AssistantV1 = require('watson-developer-cloud/assistant/v1');
+let context = {};
+
 
 const watsonAssistant = new AssistantV1({
   "version": "2018-07-10",
@@ -24,12 +26,14 @@ bot.on('message', (msg) => {
     input: { text: msg.text },
     workspace_id: '0d7ccc5b-d889-45a6-a462-57b7df9b1ba6',
     text: msg.text,
-    context: {},
+    context,
 };
   watsonAssistant.message(params, (err, response) => {
     console.log(JSON.stringify(response, null, "\t"));
     if(err)
           bot.sendMessage(msg.chat.id, 'Eita... deu algum  erro na API :S');
     bot.sendMessage(msg.chat.id, response.output.text.join('\n'));
+
+    context = response.context;
 });
 })
