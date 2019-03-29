@@ -5,7 +5,7 @@ let context = {};
 
 const watsonAssistant = new AssistantV1({
   "version": "2018-07-10",
-  "iam_apikey": "your_watson_api_key-RHNAQs0AmzcOWlccEeEx",
+  "iam_apikey": "your_watson_api_key",
   "iam_apikey_description": "Auto generated apikey during resource-key operation for Instance - crn:v1:bluemix:public:conversation:us-east:a/60c90d29ecae487b93d92313c7ab535f:4ae7e7fa-ba97-40e3-836e-afce9fa98e58::",
   "iam_apikey_name": "auto-generated-apikey-154c1a01-ae97-4d10-88cd-f8ddc5d23787",
   "iam_role_crn": "crn:v1:bluemix:public:iam::::serviceRole:Manager",
