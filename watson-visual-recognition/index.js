@@ -1,7 +1,7 @@
 const VisualRecognitionV3 = require('watson-developer-cloud/visual-recognition/v3');
 const fs = require('fs');
 
-let classifiers = ['default','food','explicit', 'face'];
+let classifiers = ['default','food','explicit', 'face', 'dogs_484253736'];
 
 var threshold = 0.75;
 
@@ -27,7 +27,7 @@ var visualRecognition = new VisualRecognitionV3({
 
 var params = {
   // images_file: fs.createReadStream('../data/images.zip'),
-  url: 'http://wellingtoneuropeandayspa.com/wp-content/uploads/eminence-organics-acne-face-mapping.jpg',
+  url: 'https://cdn.directexpose.com/wp-content/uploads/2018/02/87a756d6-15.-kooikerhondje-rare-dog-breeds-wikipedia.jpg',
   classifier_ids: classifiers,
   accept_language: language,
   threshold: threshold
