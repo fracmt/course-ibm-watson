@@ -18,21 +18,13 @@ let visualRecognition = new VisualRecognitionV3({
     }
 });
 
-let params = {
-  name: 'dogs',
-  beagle_positive_examples: fs.createReadStream('./beagle.zip'),
-  beagle_positive_examples_filename: 'beagle.zip',
-  husky_positive_examples: fs.createReadStream('./husky.zip'),
-  husky_positive_examples_filename: 'husky.zip',
-  negative_examples: fs.createReadStream('./cats.zip'),
-  negative_examples_filename: 'cats.zip'
-};
-
-visualRecognition.createClassifier(params,
-  function (err, response) {
+visualRecognition.listClassifiers({
+  verbose: true
+},
+  function(err, response) {
     if (err) { 
       console.log(err);
     } else {
       console.log(JSON.stringify(response, null, 2))
     }
-});
+  });
